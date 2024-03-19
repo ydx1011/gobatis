@@ -76,3 +76,9 @@ func (f *DefaultFactory) CreateSession() session.SqlSession {
 func (f *DefaultFactory) LogFunc() logging.LogFunc {
 	return f.Log
 }
+
+func (f *DefaultFactory) WithLock(lockFunc func(fac *DefaultFactory)) {
+	f.mutex.Lock()
+	lockFunc(f)
+	f.mutex.Unlock()
+}
