@@ -99,7 +99,7 @@ func (sess *DefaultSqlSession) Rollback() error {
 }
 
 func (sess *DefaultSqlSession) logLastSql(sql string, params ...interface{}) {
-	sess.Log(logging.INFO, "sql: [%s], param: %s\n", sql, fmt.Sprint(params...))
+	sess.Log(logging.INFO, "sql: [%s], param: %s\n", sql, fmt.Sprint(params))
 }
 
 func (sess *DefaultSqlSession) exec(ctx context.Context, sql string, params ...interface{}) (common.Result, error) {
